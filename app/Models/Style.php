@@ -1,0 +1,21 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Style extends Model
+{
+    use HasFactory;
+
+    protected $table = 'styles';
+    protected $primaryKey = 'id_styles';
+
+    protected $fillable = [
+        'local_path',
+        'link',
+        'order',
+        'id_templates'
+    ];
+}
