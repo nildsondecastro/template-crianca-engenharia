@@ -229,7 +229,7 @@ return [
     */
 
     'use_route_url' => false,
-    'dashboard_url' => 'home',
+    'dashboard_url' => '',
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 'register',
@@ -266,6 +266,19 @@ return [
     */
 
     'menu' => [
+        [
+            'text'    => 'Super Administração',
+            'icon'    => 'fas fa-fw fa-share',
+            'can'  => 'super_admin',
+            'submenu' => [
+                [
+                    'text' => 'Templates',
+                    'icon' => 'fas fa-fw fa-share',
+                    'url'  => 'admin/templates',
+                ],
+                
+            ],
+        ],
         // Navbar items:
         [
             'type'         => 'navbar-search',
@@ -294,6 +307,7 @@ return [
             'label'       => 4,
             'label_color' => 'success',
         ],
+        ['header' => 'admin'],
         ['header' => 'account_settings'],
         [
             'text' => 'profile',

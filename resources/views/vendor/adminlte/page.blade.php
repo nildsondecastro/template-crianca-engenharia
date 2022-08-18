@@ -14,6 +14,8 @@
 @section('body')
     <div class="wrapper">
 
+        @include('layouts.msgs')
+
         {{-- Preloader Animation --}}
         @if($layoutHelper->isPreloaderEnabled())
             @include('adminlte::partials.common.preloader')
