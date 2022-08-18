@@ -3,7 +3,7 @@
 @section('title', 'Página Inicial')
 
 @section('content_header')
-    <h1>Estilos</h1>
+    <h1>Scripts</h1>
 @stop
 
 @section('content')
@@ -12,9 +12,9 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Estilos</h3>
+                    <h3 class="card-title">Scripts</h3>
                     <div class="card-tools">
-                        <a href="{{route('template.styles.create', ['template' => $template->id_templates])}}" class="btn btn-block btn-outline-primary">
+                        <a href="{{route('template.scripts.create', ['template' => $template->id_templates])}}" class="btn btn-block btn-outline-primary">
                             <i class="fas fa-fw fa-plus"></i>
                         </a>
                     </div>
@@ -34,21 +34,21 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($styles as $style)
+                            @foreach ($scripts as $script)
                                 <tr>
-                                    <td>{{$style->id_styles}}</td>
-                                    <td>{{$style->order}}</td>
-                                    <td>{{$style->template->name ?? ''}}</td>
-                                    <td>{{$style->local_path}}</td>
-                                    <td>{{$style->link}}</td>
+                                    <td>{{$script->id_scripts}}</td>
+                                    <td>{{$script->order}}</td>
+                                    <td>{{$script->template->name ?? ''}}</td>
+                                    <td>{{$script->local_path}}</td>
+                                    <td>{{$script->link}}</td>
                                     <td>
                                         
                                     </td>
                                     <td>
-                                        <a class="btn btn-success" href="{{route('template.styles.edit', ['template' => $template->id_templates, 'style' => $style->id_styles])}}">
+                                        <a class="btn btn-success" href="{{route('template.scripts.edit', ['template' => $template->id_templates, 'script' => $script->id_scripts])}}">
                                             <i class="fas fa-fw fa-edit"></i>
                                         </a>
-                                        <a class="btn btn-primary" href="{{route('template.styles.show', ['template' => $template->id_templates, 'style' => $style->id_styles])}}">
+                                        <a class="btn btn-primary" href="{{route('template.scripts.show', ['template' => $template->id_templates, 'script' => $script->id_scripts])}}">
                                             <i class="fas fa-fw fa-eye"></i>
                                         </a>
                                     </td>

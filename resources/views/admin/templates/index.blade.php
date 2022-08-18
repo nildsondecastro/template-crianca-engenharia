@@ -52,6 +52,9 @@
                                         <a class="btn btn-success" href="{{route('template.styles.index', ['template' => $template->id_templates])}}">
                                             <i class="fas fa-fw fa-edit"></i>Estilos
                                         </a>
+                                        <a class="btn btn-dark" href="{{route('template.scripts.index', ['template' => $template->id_templates])}}">
+                                            <i class="fas fa-fw fa-edit"></i>Scripts
+                                        </a>
                                     </td>
                                     <td>
                                         <a class="btn btn-success" href="{{route('templates.edit', ['template' => $template->id_templates])}}">
@@ -77,5 +80,4 @@
 @stop
 
 @section('js')
-    {{ Log::info('Home acessado por ' . Auth::user()) }}
 @stop

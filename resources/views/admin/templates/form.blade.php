@@ -55,5 +55,4 @@
 @stop
 
 @section('js')
-    {{ Log::info('Home acessado por ' . Auth::user()) }}
 @stop

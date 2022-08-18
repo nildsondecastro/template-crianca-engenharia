@@ -3,7 +3,7 @@
 @section('title', 'Página Inicial')
 
 @section('content_header')
-    <h1>Estilo</h1>
+    <h1>Script</h1>
 @stop
 
 @section('content')
@@ -12,10 +12,10 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Adicionar Estilo ao {{$template->name}}</h3>
+                    <h3 class="card-title">Adicionar Script ao {{$template->name}}</h3>
                 </div>
                 <div class="card-body">
-                    <form method="POST" action="{{($model ?? null)? route('template.styles.update', ['template' => $template->id_templates, 'style' => $model->id_styles]) : route('template.styles.store', ['template' => $template->id_templates])}}" enctype="multipart/form-data">
+                    <form method="POST" action="{{($model ?? null)? route('template.scripts.update', ['template' => $template->id_templates, 'script' => $model->id_scripts]) : route('template.scripts.store', ['template' => $template->id_templates])}}" enctype="multipart/form-data">
                         @csrf
                         @if ($model ?? null)
                             @method('PUT')
