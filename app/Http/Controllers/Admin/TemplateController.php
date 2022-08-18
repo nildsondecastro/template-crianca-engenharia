@@ -32,7 +32,12 @@ class TemplateController extends Controller
 
     public function show($id)
     {
+        $model = Template::find($id);
+        if(!$model){
+            return redirect()->back()->with(['msg_error' => 'Não Encontrado!']);
+        }
         
+        return view('admin.templates.show', compact('model'));
     }
 
     public function edit($id)
@@ -62,6 +67,15 @@ class TemplateController extends Controller
 
     public function destroy($id)
     {
-        //
+        $model = Template::find($id);
+        if(!$model){
+            return redirect()->back()->with(['msg_error' => 'Não Encontrado!']);
+        }
+
+        if ($model->delete()) {
+            return redirect()->route('templates.index')->with(['msg_success' => 'Deletado!']);
+        } else {
+            return redirect()->back()->with(['msg_error' => 'Erro!']);
+        }
     }
 }

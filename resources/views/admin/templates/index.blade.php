@@ -15,7 +15,7 @@
                     <h3 class="card-title">Templates</h3>
                     <div class="card-tools">
                         <a href="{{route('templates.create')}}" class="btn btn-block btn-outline-primary">
-                            Adicionar
+                            <i class="fas fa-fw fa-plus"></i>
                         </a>
                     </div>
                 </div>
@@ -41,8 +41,11 @@
                                     <td>{{$template->path}}</td>
                                     <td>{{$template->link_tutorial}}</td>
                                     <td>
-                                        <a class="btn btn-primary" href="{{route('templates.edit', ['template' => $template->id_templates])}}">
-                                            Edit
+                                        <a class="btn btn-success" href="{{route('templates.edit', ['template' => $template->id_templates])}}">
+                                            <i class="fas fa-fw fa-edit"></i>
+                                        </a>
+                                        <a class="btn btn-primary" href="{{route('templates.show', ['template' => $template->id_templates])}}">
+                                            <i class="fas fa-fw fa-eye"></i>
                                         </a>
                                     </td>
                                 </tr>
