@@ -29,6 +29,7 @@
                                 <th>Nome</th>
                                 <th>Modelo PDF</th>
                                 <th>Tutorial</th>
+                                <th>Relações</th>
                                 <th>Ações</th>
                             </tr>
                         </thead>
@@ -40,13 +41,18 @@
                                     <td>{{$template->name}}</td>
                                     <td>
                                         @if ($template->path)
-                                        <a class="btn btn-primary" target="_blank" href="{{route('templates.file', ['template' => $template->id_templates])}}">
+                                        <a class="btn btn-info" target="_blank" href="{{route('templates.file', ['template' => $template->id_templates])}}">
                                             <i class="fas fa-fw fa-eye"></i>
                                             <i class="fas fa-fw fa-file"></i>
                                         </a>
                                         @endif
                                     </td>
                                     <td>{{$template->link_tutorial}}</td>
+                                    <td>
+                                        <a class="btn btn-success" href="{{route('template.styles.index', ['template' => $template->id_templates])}}">
+                                            <i class="fas fa-fw fa-edit"></i>Estilos
+                                        </a>
+                                    </td>
                                     <td>
                                         <a class="btn btn-success" href="{{route('templates.edit', ['template' => $template->id_templates])}}">
                                             <i class="fas fa-fw fa-edit"></i>

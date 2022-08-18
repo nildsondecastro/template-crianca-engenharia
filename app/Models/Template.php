@@ -18,4 +18,9 @@ class Template extends Model
         'order',
         'link_tutorial'
     ];
+
+    public function styles()
+    {
+        return $this->hasMany(Style::class, 'id_templates');
+    }
 }

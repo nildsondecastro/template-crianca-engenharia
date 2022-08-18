@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\StyleController;
 use App\Http\Controllers\Admin\TemplateController;
 use Illuminate\Support\Facades\Route;
 
@@ -23,6 +24,9 @@ Auth::routes();
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function(){
+    Route::resource('template.styles', StyleController::class);
+
     Route::resource('templates', TemplateController::class);
     Route::get('templates/{template}/file', [TemplateController::class, 'file'])->name('templates.file');
+
 });
