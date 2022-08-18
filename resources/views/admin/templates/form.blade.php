@@ -15,7 +15,7 @@
                     <h3 class="card-title">Adicionar Template</h3>
                 </div>
                 <div class="card-body">
-                    <form method="POST" action="{{($model ?? null)? route('templates.update', ['template' => $model->id_templates]) : route('templates.store')}}">
+                    <form method="POST" action="{{($model ?? null)? route('templates.update', ['template' => $model->id_templates]) : route('templates.store')}}" enctype="multipart/form-data">
                         @csrf
                         @if ($model ?? null)
                             @method('PUT')

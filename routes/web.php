@@ -24,4 +24,5 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function(){
     Route::resource('templates', TemplateController::class);
+    Route::get('templates/{template}/file', [TemplateController::class, 'file'])->name('templates.file');
 });

@@ -38,7 +38,14 @@
                                     <td>{{$template->id_templates}}</td>
                                     <td>{{$template->order}}</td>
                                     <td>{{$template->name}}</td>
-                                    <td>{{$template->path}}</td>
+                                    <td>
+                                        @if ($template->path)
+                                        <a class="btn btn-primary" target="_blank" href="{{route('templates.file', ['template' => $template->id_templates])}}">
+                                            <i class="fas fa-fw fa-eye"></i>
+                                            <i class="fas fa-fw fa-file"></i>
+                                        </a>
+                                        @endif
+                                    </td>
                                     <td>{{$template->link_tutorial}}</td>
                                     <td>
                                         <a class="btn btn-success" href="{{route('templates.edit', ['template' => $template->id_templates])}}">
