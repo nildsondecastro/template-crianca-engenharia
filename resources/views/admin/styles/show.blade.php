@@ -20,7 +20,7 @@
                         <div class="col-sm-12">
                             <div class="form-group">
                                 <label>Template</label>
-                                <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{old('name') ?? ($model->template->name ?? null)}}" required>
+                                <input readonly type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{old('name') ?? ($model->template->name ?? null)}}" required>
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

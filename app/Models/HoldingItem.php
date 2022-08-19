@@ -20,4 +20,9 @@ class HoldingItem extends Model
         'path_file',
         'id_holdings',
     ];
+
+    public function holding()
+    {
+        return $this->belongsTo(Holding::class, 'id_holdings');
+    }
 }

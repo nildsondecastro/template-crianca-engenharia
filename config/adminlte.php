@@ -273,7 +273,7 @@ return [
             'submenu' => [
                 [
                     'text' => 'Templates',
-                    'icon' => 'fas fa-fw fa-share',
+                    'icon' => 'far fa-fw fa-file',
                     'url'  => 'admin/templates',
                 ],
                 

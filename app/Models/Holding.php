@@ -22,4 +22,9 @@ class Holding extends Model
     {
         return $this->belongsTo(Template::class, 'id_templates');
     }
+
+    public function holdings_items()
+    {
+        return $this->hasMany(HoldingItem::class, 'id_holdings');
+    }
 }

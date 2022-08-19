@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\HoldingController;
+use App\Http\Controllers\Admin\HoldingItemController;
 use App\Http\Controllers\Admin\ScriptController;
 use App\Http\Controllers\Admin\StyleController;
 use App\Http\Controllers\Admin\TemplateController;
@@ -26,6 +27,8 @@ Auth::routes();
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function(){
+    Route::resource('holding.holdings_items', HoldingItemController::class);
+
     Route::resource('template.styles', StyleController::class);
     Route::resource('template.scripts', ScriptController::class);
     Route::resource('template.holdings', HoldingController::class);

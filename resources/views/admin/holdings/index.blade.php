@@ -40,7 +40,9 @@
                                     <td>{{$holding->template->name ?? ''}}</td>
                                     <td>{{$holding->name}}</td>
                                     <td>
-                                        
+                                        <a class="btn btn-dark" href="{{route('holding.holdings_items.index', ['holding' => $holding->id_holdings])}}">
+                                            <i class="fas fa-fw fa-edit"></i>
+                                        </a>
                                     </td>
                                     <td>
                                         <a class="btn btn-success" href="{{route('template.holdings.edit', ['template' => $template->id_templates, 'holding' => $holding->id_holdings])}}">
