@@ -17,4 +17,9 @@ class Holding extends Model
         'order',
         'id_templates'
     ];
+
+    public function template()
+    {
+        return $this->belongsTo(Template::class, 'id_templates');
+    }
 }

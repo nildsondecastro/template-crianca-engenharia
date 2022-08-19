@@ -55,6 +55,9 @@
                                         <a class="btn btn-dark" href="{{route('template.scripts.index', ['template' => $template->id_templates])}}">
                                             <i class="fas fa-fw fa-edit"></i>Scripts
                                         </a>
+                                        <a class="btn btn-info" href="{{route('template.holdings.index', ['template' => $template->id_templates])}}">
+                                            <i class="fas fa-fw fa-edit"></i>Sessões
+                                        </a>
                                     </td>
                                     <td>
                                         <a class="btn btn-success" href="{{route('templates.edit', ['template' => $template->id_templates])}}">

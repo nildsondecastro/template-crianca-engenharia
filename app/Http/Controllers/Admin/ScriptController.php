@@ -41,12 +41,12 @@ class ScriptController extends Controller
     {
         $inputs = $request->all();
 
-        //if($request->hasFile('path') && $request->file('path')->isValid()){
-        //    $file_name = uniqid(date('HisYmd')).'.'.$request->path->extension();
-        //    if (!$request->path->storeAs($this->file_path, $file_name))
-        //        return redirect()->back()->with(['msg_error' => 'Erro!'])->withInput();
-        //    $inputs['path'] = "storage/{$this->file_path_name}/{$file_name}";
-        //}
+        if($request->hasFile('local_path') && $request->file('local_path')->isValid()){
+            $file_name = uniqid(date('HisYmd')).'.'.$request->local_path->extension();
+            if (!$request->local_path->storeAs($this->file_path, $file_name))
+                return redirect()->back()->with(['msg_error' => 'Erro!'])->withInput();
+            $inputs['local_path'] = "storage/{$this->file_path_name}/{$file_name}";
+        }
 
         $template = Template::find($template);
         if(!$template){
@@ -104,12 +104,12 @@ class ScriptController extends Controller
         }
 
         $inputs = $request->all();
-        //if($request->hasFile('path') && $request->file('path')->isValid()){
-        //    $file_name = uniqid(date('HisYmd')).'.'.$request->path->extension();
-        //    if (!$request->path->storeAs($this->file_path, $file_name))
-        //        return redirect()->back()->with(['msg_error' => 'Erro!'])->withInput();
-        //    $inputs['path'] = "storage/{$this->file_path_name}/{$file_name}";
-        //}
+        if($request->hasFile('local_path') && $request->file('local_path')->isValid()){
+            $file_name = uniqid(date('HisYmd')).'.'.$request->local_path->extension();
+            if (!$request->local_path->storeAs($this->file_path, $file_name))
+                return redirect()->back()->with(['msg_error' => 'Erro!'])->withInput();
+            $inputs['local_path'] = "storage/{$this->file_path_name}/{$file_name}";
+        }
 
         $updated = $model->update($inputs);
         if ($updated) {

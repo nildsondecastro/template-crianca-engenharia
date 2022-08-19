@@ -3,15 +3,15 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StyleStoreRequest;
+use App\Http\Requests\HoldingStoreRequest;
 use Illuminate\Http\Request;
-use App\Models\Style;
+use App\Models\Holding;
 use App\Models\Template;
 
-class StyleController extends Controller
+class HoldingController extends Controller
 {
-    public $file_path = 'public/styles';
-    public $file_path_name = 'styles';
+    public $file_path = 'public/holdings';
+    public $file_path_name = 'holdings';
 
     public function index($template)
     {
@@ -20,11 +20,11 @@ class StyleController extends Controller
             return redirect()->back()->with(['msg_error' => 'TEMPLATE Não Encontrado!']);
         }
 
-        $styles = Style::where('id_templates', $template->id_templates)
+        $holdings = Holding::where('id_templates', $template->id_templates)
             ->orderBy('order')
             ->get();
 
-        return view('admin.styles.index', compact('styles', 'template'));
+        return view('admin.holdings.index', compact('holdings', 'template'));
     }
 
     public function create($template)
@@ -34,10 +34,10 @@ class StyleController extends Controller
             return redirect()->back()->with(['msg_error' => 'TEMPLATE Não Encontrado!']);
         }
 
-        return view('admin.styles.form', compact('template'));
+        return view('admin.holdings.form', compact('template'));
     }
 
-    public function store($template, StyleStoreRequest $request)
+    public function store($template, HoldingStoreRequest $request)
     {
         $inputs = $request->all();
 
@@ -53,9 +53,9 @@ class StyleController extends Controller
             return redirect()->back()->with(['msg_error' => 'TEMPLATE Não Encontrado!']);
         }
 
-        $created = Style::create($inputs);
+        $created = Holding::create($inputs);
         if ($created) {
-            return redirect()->route('template.styles.index', ['template' => $template->id_templates])->with(['msg_success' => 'Cadastrado!']);
+            return redirect()->route('template.holdings.index', ['template' => $template->id_templates])->with(['msg_success' => 'Cadastrado!']);
         } else {
             return redirect()->back()->with(['msg_error' => 'Erro!']);
         }
@@ -68,12 +68,12 @@ class StyleController extends Controller
             return redirect()->back()->with(['msg_error' => 'TEMPLATE Não Encontrado!']);
         }
 
-        $model = Style::find($id);
+        $model = Holding::find($id);
         if(!$model){
             return redirect()->back()->with(['msg_error' => 'Não Encontrado!']);
         }
 
-        return view('admin.styles.show', compact('model', 'template'));
+        return view('admin.holdings.show', compact('model', 'template'));
     }
 
     public function edit($template, $id)
@@ -83,22 +83,22 @@ class StyleController extends Controller
             return redirect()->back()->with(['msg_error' => 'TEMPLATE Não Encontrado!']);
         }
 
-        $model = Style::find($id);
+        $model = Holding::find($id);
         if(!$model){
             return redirect()->back()->with(['msg_error' => 'Não Encontrado!']);
         }
         
-        return view('admin.styles.form', compact('model', 'template'));
+        return view('admin.holdings.form', compact('model', 'template'));
     }
 
-    public function update($template, StyleStoreRequest $request, $id)
+    public function update($template, HoldingStoreRequest $request, $id)
     {
         $template = Template::find($template);
         if(!$template){
             return redirect()->back()->with(['msg_error' => 'TEMPLATE Não Encontrado!']);
         }
 
-        $model = Style::find($id);
+        $model = Holding::find($id);
         if(!$model){
             return redirect()->back()->with(['msg_error' => 'Não Encontrado!']);
         }
@@ -113,7 +113,7 @@ class StyleController extends Controller
 
         $updated = $model->update($inputs);
         if ($updated) {
-            return redirect()->route('template.styles.index', ['template' => $template->id_templates])->with(['msg_success' => 'Atualizado!']);
+            return redirect()->route('template.holdings.index', ['template' => $template->id_templates])->with(['msg_success' => 'Atualizado!']);
         } else {
             return redirect()->back()->with(['msg_error' => 'Erro!']);
         }
@@ -126,13 +126,13 @@ class StyleController extends Controller
             return redirect()->back()->with(['msg_error' => 'TEMPLATE Não Encontrado!']);
         }
 
-        $model = Style::find($id);
+        $model = Holding::find($id);
         if(!$model){
             return redirect()->back()->with(['msg_error' => 'Não Encontrado!']);
         }
 
         if ($model->delete()) {
-            return redirect()->route('template.styles.index', ['template' => $template->id_templates])->with(['msg_success' => 'Deletado!']);
+            return redirect()->route('template.holdings.index', ['template' => $template->id_templates])->with(['msg_success' => 'Deletado!']);
         } else {
             return redirect()->back()->with(['msg_error' => 'Erro!']);
         }

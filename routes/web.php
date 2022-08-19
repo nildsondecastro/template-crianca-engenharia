@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\HoldingController;
 use App\Http\Controllers\Admin\ScriptController;
 use App\Http\Controllers\Admin\StyleController;
 use App\Http\Controllers\Admin\TemplateController;
@@ -27,6 +28,7 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function(){
     Route::resource('template.styles', StyleController::class);
     Route::resource('template.scripts', ScriptController::class);
+    Route::resource('template.holdings', HoldingController::class);
 
     Route::resource('templates', TemplateController::class);
     Route::get('templates/{template}/file', [TemplateController::class, 'file'])->name('templates.file');

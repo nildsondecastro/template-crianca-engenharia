@@ -23,4 +23,9 @@ class Template extends Model
     {
         return $this->hasMany(Style::class, 'id_templates');
     }
+
+    public function scripts()
+    {
+        return $this->hasMany(Script::class, 'id_templates');
+    }
 }
