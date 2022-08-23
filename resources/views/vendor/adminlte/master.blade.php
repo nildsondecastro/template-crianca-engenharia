@@ -31,6 +31,22 @@
         @include('adminlte::plugins', ['type' => 'css'])
 
         <link rel="stylesheet" href="{{ asset('vendor/adminlte/dist/css/adminlte.min.css') }}">
+        <style>
+            [class*=sidebar-dark-] {
+                background-color: #ffab40;
+                background-image: linear-gradient(62deg, #ffab40 47%, #f26938 100%);
+            }
+            [class*=sidebar-dark-] .sidebar a {
+                color: white;
+            }
+            .content-wrapper {
+                background-color: #f2b705;
+                background-image: linear-gradient(12deg, #f2b705 30%, #f7f4bd 100%);
+            }
+            .navbar {
+                background-color: #f2b705;
+            }
+        </style>
 
         @if(config('adminlte.google_fonts.allowed', true))
             <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">

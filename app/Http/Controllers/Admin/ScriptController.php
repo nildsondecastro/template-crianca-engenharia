@@ -42,7 +42,7 @@ class ScriptController extends Controller
         $inputs = $request->all();
 
         if($request->hasFile('local_path') && $request->file('local_path')->isValid()){
-            $file_name = uniqid(date('HisYmd')).'.'.$request->local_path->extension();
+            $file_name = uniqid(date('HisYmd')).'.js';
             if (!$request->local_path->storeAs($this->file_path, $file_name))
                 return redirect()->back()->with(['msg_error' => 'Erro!'])->withInput();
             $inputs['local_path'] = "storage/{$this->file_path_name}/{$file_name}";
@@ -105,7 +105,7 @@ class ScriptController extends Controller
 
         $inputs = $request->all();
         if($request->hasFile('local_path') && $request->file('local_path')->isValid()){
-            $file_name = uniqid(date('HisYmd')).'.'.$request->local_path->extension();
+            $file_name = uniqid(date('HisYmd')).'.js';
             if (!$request->local_path->storeAs($this->file_path, $file_name))
                 return redirect()->back()->with(['msg_error' => 'Erro!'])->withInput();
             $inputs['local_path'] = "storage/{$this->file_path_name}/{$file_name}";

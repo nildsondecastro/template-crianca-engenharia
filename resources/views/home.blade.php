@@ -20,7 +20,7 @@
                             </div>
                         @endif
 
-                        {{ __('You are logged in!') }}
+                        <a href="{{route('public.index', ['username' => 'teste'])}}">Teste</a>
                     </div>
                 </div>
             </div>

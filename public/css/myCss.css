@@ -1,0 +1,19 @@
+:root {
+  --ce_r: rgb(217, 82, 107);
+  --ce_b: rgb(94, 191, 181);
+  --ce_y1: #F2A74B;
+  --ce_y2: rgb(242, 183, 5);
+  --ce_y3: rgb(242, 105, 56);
+
+  background-color: #f2b705;
+background-image: linear-gradient(12deg, #f2b705 30%, #f7f4bd 100%);
+
+
+}
+
+body{
+  background-color: #f2b705;
+  background-image: linear-gradient(12deg, #f2b705 30%, #ffffff 100%);  
+}
+
+

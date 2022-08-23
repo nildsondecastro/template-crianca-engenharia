@@ -5,23 +5,15 @@ use App\Http\Controllers\Admin\HoldingItemController;
 use App\Http\Controllers\Admin\ScriptController;
 use App\Http\Controllers\Admin\StyleController;
 use App\Http\Controllers\Admin\TemplateController;
+use App\Http\Controllers\Domain\PublicController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+//subdomínios
+Route::group(['domain' => '{username}.' . env('APP_URL')], function () {
+    Route::get('/', [PublicController::class, 'index'])->name('public.index');
+});
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
-
+//demais rotas
 Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

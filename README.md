@@ -24,3 +24,15 @@ instalação do Adminlte
 - `php artisan adminlte:install`
 - `php artisan adminlte:install --only=auth_views`
 - `php artisan adminlte:install --only=main_views`
+
+gerador de models e relacionamentos:
+
+- `composer require reliese/laravel --dev`
+- `php artisan vendor:publish --tag=reliese-models`
+- `php artisan config:clear`
+
+Opções:
+
+- `php artisan code:models` (montar tudo)
+- `php artisan code:models --table=Nome_Tabela` (montar tabela especifica)
+- `php artisan code:models --connection=pgsql` (definir conexão para o postgres)
