@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateStylesTable extends Migration
+class CreatePublicationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,15 @@ class CreateStylesTable extends Migration
      */
     public function up()
     {
-        Schema::create('styles', function (Blueprint $table) {
-            $table->id('id_styles');
-            $table->string('local_path')->nullable();
-            $table->string('link')->nullable();
-            $table->integer('order');
+        Schema::create('publications', function (Blueprint $table) {
+            $table->id('id_publications');
 
-            $table->unsignedbigInteger('id_templates');
-            $table->foreign('id_templates')->references('id_templates')->on('templates');
+            $table->integer('order');
+            $table->string('name');
+            $table->string('link');
+
+            $table->unsignedbigInteger('id_events');
+            $table->foreign('id_events')->references('id_events')->on('events');
 
             $table->timestamps();
         });
@@ -33,6 +34,6 @@ class CreateStylesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('styles');
+        Schema::dropIfExists('publications');
     }
 }
