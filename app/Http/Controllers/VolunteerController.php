@@ -5,11 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\Event;
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class VolunteerController extends Controller
 {
     public function __construct()
     {
-        //$this->middleware('auth');
+        $this->middleware('auth');
     }
 
     public function index()
@@ -18,9 +18,4 @@ class HomeController extends Controller
         return view('home', compact('eventos'));
     }
 
-    public function publications($id)
-    {
-        $evento = Event::with('publications')->find($id);
-        return view('publications', compact('evento'));
-    }
 }

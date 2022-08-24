@@ -18,6 +18,15 @@ Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+//rotas relacionadas com um evento específico
+Route::group(['prefix' => '{id}'], function(){
+    Route::get('/', [App\Http\Controllers\HomeController::class, 'publications'])->name('publications');
+
+    Route::group(['middleware' => ['auth']], function(){
+        Route::get('/volunteer', [App\Http\Controllers\VolunteerController::class, 'registerVolunteer'])->name('volunteer.register');
+    });
+});
+
 Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function(){
     //Route::resource('holding.holdings_items', HoldingItemController::class);
 //

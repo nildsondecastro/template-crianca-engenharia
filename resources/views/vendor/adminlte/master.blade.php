@@ -43,6 +43,10 @@
                 background-color: #f2b705;
                 background-image: linear-gradient(12deg, #f2b705 30%, #f7f4bd 100%);
             }
+            [class*=-page] {
+                background-color: #f2b705;
+                background-image: linear-gradient(12deg, #f2b705 30%, #f7f4bd 100%);
+            }
             .navbar {
                 background-color: #f2b705;
             }

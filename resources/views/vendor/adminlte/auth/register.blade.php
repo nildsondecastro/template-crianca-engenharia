@@ -35,6 +35,24 @@
             @enderror
         </div>
 
+        {{-- CPF field --}}
+        <div class="input-group mb-3">
+            <input type="text" name="cpf" class="form-control @error('cpf') is-invalid @enderror"
+                   value="{{ old('cpf') }}" placeholder="CPF" autofocus>
+
+            <div class="input-group-append">
+                <div class="input-group-text">
+                    <span class="fas fa-user {{ config('adminlte.classes_auth_icon', '') }}"></span>
+                </div>
+            </div>
+
+            @error('cpf')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+        </div>
+
         {{-- Email field --}}
         <div class="input-group mb-3">
             <input type="email" name="email" class="form-control @error('email') is-invalid @enderror"
@@ -47,6 +65,24 @@
             </div>
 
             @error('email')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+        </div>
+
+        {{-- Phone field --}}
+        <div class="input-group mb-3">
+            <input type="text" name="phone" class="form-control @error('phone') is-invalid @enderror"
+                   value="{{ old('phone') }}" placeholder="DDD + Telefone">
+
+            <div class="input-group-append">
+                <div class="input-group-text">
+                    <span class="fas fa-phone"></span>
+                </div>
+            </div>
+
+            @error('phone')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>
@@ -96,7 +132,10 @@
             {{ __('adminlte::adminlte.register') }}
         </button>
 
+        <span>(ainda será necessário se registrar no evento desejado)</span>
+
     </form>
+
 @stop
 
 @section('auth_footer')

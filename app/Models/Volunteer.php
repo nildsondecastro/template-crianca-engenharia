@@ -1,28 +1,10 @@
 <?php
 
-/**
- * Created by Reliese Model.
- */
-
 namespace App\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
-/**
- * Class Volunteer
- * 
- * @property int $id_volunteers
- * @property int $id_users
- * @property int $id_events
- * @property Carbon|null $created_at
- * @property Carbon|null $updated_at
- * 
- * @property User $user
- * @property Event $event
- *
- * @package App\Models
- */
 class Volunteer extends Model
 {
 	protected $table = 'volunteers';

@@ -21,8 +21,7 @@
         {{-- Logo --}}
         <div class="{{ $auth_type ?? 'login' }}-logo">
             <a href="{{ $dashboard_url }}">
-                <img src="{{ asset(config('adminlte.logo_img')) }}" height="50">
-                {!! config('adminlte.logo', '<b>Admin</b>LTE') !!}
+                <img src="{{ asset('imagens/icone_nome.png') }}" height="120">
             </a>
         </div>
 
@@ -56,6 +55,14 @@
 @stop
 
 @section('adminlte_js')
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('[name=phone]').mask('(00) 00000-0000');
+            $('[name=cpf]').mask('000.000.000-00');
+        });
+    </script>
     @stack('js')
     @yield('js')
 @stop

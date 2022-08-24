@@ -24,10 +24,10 @@
     <form action="{{ $login_url }}" method="post">
         @csrf
 
-        {{-- Email field --}}
+        {{-- CPF field --}}
         <div class="input-group mb-3">
-            <input type="email" name="email" class="form-control @error('email') is-invalid @enderror"
-                   value="{{ old('email') }}" placeholder="{{ __('adminlte::adminlte.email') }}" autofocus>
+            <input type="text" name="cpf" class="form-control @error('cpf') is-invalid @enderror"
+                   value="{{ old('cpf') }}" placeholder="CPF" autofocus>
 
             <div class="input-group-append">
                 <div class="input-group-text">
@@ -35,7 +35,7 @@
                 </div>
             </div>
 
-            @error('email')
+            @error('cpf')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>

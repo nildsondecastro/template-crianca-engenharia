@@ -279,6 +279,11 @@ return [
                 
             ],
         ],
+        [
+            'text'  =>  'Página Inicial',
+            'icon'    => 'fas fa-fw fa-home',
+            'url'  => '/',
+        ],
         // Navbar items:
         [
             'type'         => 'fullscreen-widget',
