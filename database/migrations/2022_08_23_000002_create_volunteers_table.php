@@ -22,6 +22,11 @@ class CreateVolunteersTable extends Migration
             $table->unsignedbigInteger('id_events');
             $table->foreign('id_events')->references('id_events')->on('events');
 
+            $table->unique(['id_users', 'id_events']);
+
+            $table->string('institution');
+            $table->integer('shift');//1-manhã, 2-tarde, 3-ambos
+
             $table->timestamps();
         });
     }

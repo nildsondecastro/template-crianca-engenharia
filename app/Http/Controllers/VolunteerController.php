@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event;
+use App\Models\Volunteer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class VolunteerController extends Controller
 {
@@ -12,10 +14,20 @@ class VolunteerController extends Controller
         $this->middleware('auth');
     }
 
-    public function index()
+    public function registerVolunteer($id)
     {
-        $eventos = Event::where('active', true)->get();
-        return view('home', compact('eventos'));
+        $evento = Event::where([
+            ['active', true],['id_events', $id]])->first();
+
+        if(!$evento)
+            return redirect()->back()->with('error', 'Não Encontrado');
+
+        $voluntario = Volunteer::where([
+            ['id_users', Auth::user()->id],
+            ['id_events', $id]
+        ])->first();
+            
+        return view('volunteer.show', compact('evento', 'voluntario'));
     }
 
 }

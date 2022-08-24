@@ -10,14 +10,13 @@ class Volunteer extends Model
 	protected $table = 'volunteers';
 	protected $primaryKey = 'id_volunteers';
 
-	protected $casts = [
-		'id_users' => 'int',
-		'id_events' => 'int'
-	];
+	protected $casts = [];
 
 	protected $fillable = [
 		'id_users',
-		'id_events'
+		'id_events',
+		'institution',
+		'shift'
 	];
 
 	public function user()

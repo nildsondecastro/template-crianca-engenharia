@@ -10,10 +10,7 @@ class Publication extends Model
 	protected $table = 'publications';
 	protected $primaryKey = 'id_publications';
 
-	protected $casts = [
-		'order' => 'int',
-		'id_events' => 'int'
-	];
+	protected $casts = [];
 
 	protected $fillable = [
 		'order',
